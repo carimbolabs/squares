@@ -14,14 +14,18 @@ end
 
 engine:prefetch(squares)
 
-for _, name in ipairs(squares) do
-  local square = engine:spawn()
-  square.pixmap = name
-  square.on_update(function(self)
-    self.x = 20     -- math.random(0, 854)
-    self.y = 10     -- math.random(0, 480)
-    self.angle = 45 --math.random(0, 360)
-  end)
+local f = {}
+
+for i = 1, 1000 do
+  for _, name in ipairs(squares) do
+    local square = engine:spawn()
+    square.pixmap = name
+    square:on_update(function(self)
+      self.x = math.random(0, 854)
+      self.y = math.random(0, 480)
+      self.angle = math.random(0, 360)
+    end)
+  end
 end
 
 local gc = engine:spawn()
