@@ -14,8 +14,6 @@ end
 
 engine:prefetch(squares)
 
-local f = {}
-
 for i = 1, 1000 do
   for _, name in ipairs(squares) do
     local square = engine:spawn()
